@@ -1,4 +1,4 @@
-app = "via-v2-b434"
+app = "via-edc4"
 primary_region = "iad"
 kill_signal = "SIGINT"
 swap_size_mb = 512

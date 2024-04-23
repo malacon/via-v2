@@ -1,6 +1,7 @@
 app = "via-v2-b434"
 primary_region = "iad"
 kill_signal = "SIGINT"
+swap_size_mb = 512
 kill_timeout = 5
 processes = [ ]
 

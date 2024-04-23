@@ -1,5 +1,5 @@
 app = "via-edc4"
-primary_region = "iad"
+primary_region = "dfw"
 kill_signal = "SIGINT"
 swap_size_mb = 512
 kill_timeout = 5

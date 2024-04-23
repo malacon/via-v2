@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--text: 0, 0%, 3%;
+		--font-serif: Poppins, Nunito Sans, Nunito Sans Fallback;
+		--font-sans: Adobe Garamond Pro, Garamond, Times New Roman, serif;
+		--font-title: Arial, serif;
+		/* --font-mono: here if you got it... */
+
+		/* prefixed with foreground because it should look good on the background */
+		--foreground-danger: 345 82.7% 40.8%;
+
+		--background: 180 2% 92%;
+		/* --foreground: 0 0% 3%; */
+		--foreground: 222.2 84% 4.9%;
+		--background-img: 201.43, 17.5%, 15.69%;
+		--muted-background: 193 24% 15%;
+
+		/* --section: 210 3.2258064516128915% 87.84313725490196%; */
+		--section: 33 10% 83%;
+
+		--muted: 33 10% 83%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 81.8% 91.4%;
+		--input-invalid: 0 84.2% 60.2%;
+
+		--primary: 210 41% 39%;
+		--primary-foreground: 210 40% 98%;
+
+		--secondary: 33 10% 83%;
+		--secondary-foreground: 210 41% 39%;
+
+		--dark-accent: 240 2.608695652173916% 22.54901960784314%;
+
+		--accent: 210 1% 40%;
+		--accent-foreground: 210 41% 92%;
+
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+
+		--ring: 215 20.2% 65.1%;
+
+		--radius: 0.5rem;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
+
+[data-arrow='right'] {
+	position: absolute;
+	z-index: 20;
+	@apply bottom-[-70px] left-[calc(50%+28px)] sm:left-full sm:right-[10px] sm:top-[calc(50%-28px)];
+}
+
+[data-arrow='left'] {
+	position: absolute;
+	z-index: 20;
+	@apply bottom-[-70px] right-[calc(50%-28px)] sm:left-[10px] sm:right-full sm:top-[calc(50%-28px)];
+}
+
+.NavigationMenuLink {
+	align-items: flex-start !important;
+}
+
+.navitem > a {
+	align-items: flex-start !important;
+}
+
+[data-active='true'] .tab-icon {
+	@apply bg-slate-500 opacity-70;
+}
+
+[data-active='true'] .tab-text {
+	@apply font-medium;
+}
+
+.darken {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+}

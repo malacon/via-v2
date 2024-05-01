@@ -13,26 +13,31 @@ export const meta: MetaFunction = () => [{ title: 'Via Nova' }]
 
 export default function Index() {
 	const images = ['/img/poetry.jpg', '/img/discuss.jpg']
+	const aboutImages = ['/img/work.jpg', '/img/work.jpg', '/img/pray.jpg']
 	const [selectedIndex, setSelectedIndex] = useState<undefined | number>(
 		undefined,
 	)
 
 	return (
 		<main>
-			<section className="mb-28 bg-background-muted text-background">
+			<section
+				id="about"
+				className="mb-16 h-fit scroll-smooth bg-background-muted text-background lg:mb-16 "
+			>
 				<ImageOverlay
 					src="/img/mountain-help.jpg"
 					alt="Descriptive Alt Text"
-					className="w-screen overflow-hidden md:h-[640px] lg:h-[480px]"
+					className="h-[450px] w-screen overflow-hidden md:h-[640px] lg:h-[480px]"
+					gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-700/80 md:to-blue-500/30"
 				>
-					<div className="container space-y-10 ">
-						<p className=" w-1/3">
+					<div className="container space-y-10  px-6 text-base sm:text-lg md:px-8 md:text-xl">
+						<p className="md:w-2/3 lg:w-2/5">
 							Via Nova offers a 10-month, live-in experience of intensive
 							intellectual, professional, and spiritual formation for Catholics
 							ages 18-21. Formation at Via Nova is centered in the ancient
 							formula of <b>study</b>, <b>work</b>, & <b>prayer</b>.
 						</p>
-						<p className="w-1/3">
+						<p className="md:w-2/3 lg:w-2/5">
 							Through seminars, apprenticeships, spiritual regimens, and more,
 							Via Nova offers participants a via nova, that is, a "new way" of
 							forming life-changing habits, acquiring practical knowledge, and
@@ -42,45 +47,53 @@ export default function Index() {
 				</ImageOverlay>
 			</section>
 			<section className="mb-20 flex flex-col gap-24">
-				<div className="container flex flex-row gap-16">
-					<div className="w-1/3 text-center text-xl leading-7 text-accent-dark md:text-left md:text-6xl md:leading-[5.25rem]">
+				<div className="container flex flex-col gap-8 px-6 md:px-8 lg:flex-row">
+					<div className="text-center text-3xl leading-10 text-accent-dark md:text-6xl md:leading-[5.25rem] lg:w-1/3 lg:text-left">
 						Via Fellows live a life of <span className="font-bold">study</span>,{' '}
 						<span className="font-bold">work</span>, &{' '}
 						<span className="font-bold">prayer</span>.
 					</div>
-					<div className=" container flex w-2/3 flex-col place-content-between">
-						<div className="flex flex-row items-center gap-8">
+					<div className=" container flex w-full flex-col place-content-between gap-8 text-center lg:w-2/3 lg:gap-0 lg:text-left">
+						<div className="flex flex-col items-center gap-8 lg:flex-row">
 							<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400">
 								<StudyIcon className="h-12 w-12 text-gray-100" />
 							</div>
-							<p className="flex-1 text-lg">
+							<p className="flex-1 text-lg md:text-xl">
 								Seminars exploring the literary and philosophical foundations of
 								Western society, beginning with Ancient Israel, Greece, and
 								Rome.
 							</p>
 						</div>
-						<div className="flex flex-row items-center gap-8">
+						<div className="flex flex-col items-center gap-8 lg:flex-row">
 							<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400">
 								<WorkIcon className="h-12 w-12 text-gray-100" />
 							</div>
-							<p className="flex-1 text-lg">
+							<p className="flex-1 text-lg md:text-xl">
 								Apprenticeships with Catholic professionals who are dedicated to
 								preparing Fellows for success in their respective career path of
 								interest.
 							</p>
 						</div>
-						<div className="flex flex-row items-center gap-8">
+						<div className="flex flex-col items-center gap-8 lg:flex-row">
 							<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400">
 								<PrayIcon className="h-12 w-12 text-gray-100" />
 							</div>
-							<p className="flex-1 text-lg">
+							<p className="flex-1 text-lg md:text-xl">
 								Frequent time in silent prayer, spiritual reading, and the
 								sacraments with the guidance of spiritual directors.
 							</p>
 						</div>
 					</div>
 				</div>
-				<div className="flex h-72 flex-row gap-0">
+				<div className="flex h-72 lg:hidden">
+					<ImageSlider
+						className="flex-1"
+						timeInterval={5000}
+						images={aboutImages}
+						// rightFade={true}
+					/>
+				</div>
+				<div className="hidden h-72 flex-row gap-0 lg:flex">
 					<ImageOverlay
 						src="/img/work.jpg"
 						alt="Via at Study"
@@ -101,75 +114,74 @@ export default function Index() {
 				</div>
 			</section>
 			<section className="mb-20">
-				<div className="mx-auto w-fit space-y-4 text-center">
-					<h3 className=" leading-[2.7rem  text-4xl font-light">
+				<div className="container mx-auto w-fit space-y-4 p-2 text-center md:p-8">
+					<h3 className="text-2xl font-light md:text-4xl md:leading-[2.7rem]">
 						“Let him that would move the world, first move himself.”
 					</h3>
 					<p className=" text-lg  md:text-right md:text-2xl">- Socrates</p>
 				</div>
 			</section>
-			<section className="w-full bg-background-img">
-				<div className="container flex flex-wrap pr-0">
-					<div className="flex-1 py-12 pr-4 lg:w-2/3">
+			<section id="" className="w-full bg-background-img">
+				<div className="flex flex-col flex-wrap lg:container  lg:flex-row lg:pr-0">
+					<div className="container px-6 py-12 md:px-8  lg:w-2/3 lg:flex-1 lg:pr-4">
 						<div className=" text-gray-100">
-							<h2 className="pb-8 text-center text-3xl font-light">
+							<h2 className="pb-8 text-center text-2xl font-light md:text-3xl">
 								The richness of life at Via
 							</h2>
-							<p className="pb-12 text-center text-xl font-light">
+							<p className="pb-12 text-center text-base font-light md:text-xl">
 								is the fullness of Catholics with various backgrounds
-								<br />
-								coming together with a shared desire for largely the same
-								things:
+								<br className="hidden md:block" /> coming together with a shared
+								desire for largely the same things:
 							</p>
-							<ul className="m-auto grid list-disc grid-flow-row grid-cols-2 gap-x-24 gap-y-6 px-12 text-xl font-light">
+							<ul className="m-auto grid list-disc grid-flow-row grid-cols-1 gap-y-6 px-4 text-sm font-light md:grid-cols-2 md:gap-x-24 md:px-12 md:text-xl">
 								<li>
 									Knowledge of oneself,
-									<br /> the world, and God
+									<br className="hidden md:block" /> the world, and God
 								</li>
 								<li>
 									Habits of order
-									<br />
+									<br className="hidden md:block" />
 									and self-mastery
 								</li>
 								<li>
-									Meaningful work <br />
+									Meaningful work <br className="hidden md:block" />
 									in a potential career
 								</li>
 								<li>
 									An abiding love of God
-									<br /> and neighbor
+									<br className="hidden md:block" /> and neighbor
 								</li>
 								<li>
 									A deep capacity for
-									<br /> prayer and meditation
+									<br className="hidden md:block" /> prayer and meditation
 								</li>
 								<li>
 									Freedom from vice
-									<br /> and attachment
+									<br className="hidden md:block" /> and attachment
 								</li>
 								<li>
 									An ability to share
-									<br /> the faith with confidence
+									<br className="hidden md:block" /> the faith with confidence
 								</li>
 								<li>
 									A clear understanding
-									<br /> of one's calling
+									<br className="hidden md:block" /> of one's calling
 								</li>
 							</ul>
 						</div>
 					</div>
 					<ImageSlider
-						className="flex-1 lg:w-1/3"
+						className="h-[350px] max-h-[1000px] w-full overflow-hidden lg:h-auto lg:w-1/3 lg:flex-1"
 						timeInterval={5000}
 						images={images}
 						// rightFade={true}
 					/>
 				</div>
 			</section>
-			<section className="pb-0 pt-16">
-				<div className="container">
+			<section className="pb-0 pt-8 lg:pt-16" id="contact">
+				<div className="container p-6 md:p-8">
 					<Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
-						<Tab.List className="mb-10 grid grid-cols-3 gap-10">
+						<Tab.List className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-3">
 							<Tab data-headlessui-state="selected" className="hidden"></Tab>
 							<Tab className="flex flex-col place-items-center gap-2">
 								<h3 className="font-sans text-2xl">Apply to Via</h3>
@@ -209,7 +221,7 @@ export default function Index() {
 					</Tab.Group>
 				</div>
 			</section>
-			<section className="flex flex-col space-y-4 bg-background px-20 pb-4  ">
+			<section className="flex flex-col space-y-4 bg-background pb-4 xl:px-20">
 				<EmployeeCarousel />
 			</section>
 		</main>

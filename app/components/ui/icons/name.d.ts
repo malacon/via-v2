@@ -3,6 +3,7 @@
 export type IconName =
 	| 'arrow-left'
 	| 'arrow-right'
+	| 'arrow-up'
 	| 'avatar'
 	| 'camera'
 	| 'check'
@@ -14,6 +15,7 @@ export type IconName =
 	| 'exit'
 	| 'file-text'
 	| 'github-logo'
+	| 'hamburger-menu'
 	| 'laptop'
 	| 'link-2'
 	| 'lock-closed'
@@ -26,5 +28,6 @@ export type IconName =
 	| 'question-mark-circled'
 	| 'reset'
 	| 'sun'
+	| 'thick-arrow-up'
 	| 'trash'
 	| 'update'

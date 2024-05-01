@@ -145,7 +145,7 @@ export default function EmployeeCarousel() {
 	}, [api, onScroll])
 
 	return (
-		<section className="flex flex-col space-y-4 bg-background px-20 pb-8 pt-8 ">
+		<section className="flex flex-col space-y-4 bg-background pt-8 md:px-20 md:pb-8 ">
 			<Carousel
 				setApi={setApi}
 				opts={{

@@ -1,3 +1,4 @@
+/* eslint-disable remix-react-routes/use-link-for-routes */
 import { parseWithZod } from '@conform-to/zod'
 import { invariantResponse } from '@epic-web/invariant'
 import {
@@ -9,6 +10,7 @@ import {
 	type MetaFunction,
 } from '@remix-run/node'
 import {
+	Link,
 	Links,
 	Meta,
 	Outlet,
@@ -18,12 +20,22 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 // import { withSentry } from '@sentry/remix'
+import { useSpring } from 'framer-motion'
+import { useLayoutEffect, useState } from 'react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import { EpicProgress } from './components/progress-bar.tsx'
 import { useToast } from './components/toaster.tsx'
-import { href as iconsHref } from './components/ui/icon.tsx'
+import { Icon, href as iconsHref } from './components/ui/icon.tsx'
+import {
+	Sheet,
+	SheetContent,
+	SheetDescription,
+	SheetHeader,
+	SheetTitle,
+	SheetTrigger,
+} from './components/ui/sheet.tsx'
 import { EpicToaster } from './components/ui/sonner.tsx'
 import fontStylesheetUrl from './styles/font.css?url'
 import tailwindStyleSheetUrl from './styles/tailwind.css?url'
@@ -32,7 +44,7 @@ import { ClientHintCheck, getHints, useHints } from './utils/client-hints.tsx'
 import { prisma } from './utils/db.server.ts'
 import { getEnv } from './utils/env.server.ts'
 import { honeypot } from './utils/honeypot.server.ts'
-import { combineHeaders, getDomainUrl } from './utils/misc.tsx'
+import { cn, combineHeaders, getDomainUrl } from './utils/misc.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
 import { useRequestInfo } from './utils/request-info.ts'
 import { type Theme, setTheme, getTheme } from './utils/theme.server.ts'
@@ -186,7 +198,7 @@ function Document({
 				)}
 				<Links />
 			</head>
-			<body className="bg-background font-serif text-foreground">
+			<body className="overflow-x-hidden bg-background font-serif text-foreground">
 				{children}
 				<script
 					nonce={nonce}
@@ -230,25 +242,136 @@ function App() {
 	)
 }
 
-function Header() {
+function Navigation() {
+	const spring = useSpring(0, { damping: 100, stiffness: 200 })
+	const [sheetOpen, setSheetOpen] = useState(false)
+
+	useLayoutEffect(() => {
+		spring.on('change', latest => {
+			console.log(latest)
+			window.scrollTo(0, latest)
+		})
+	}, [spring])
+
+	function moveTo(to: number) {
+		setSheetOpen(false)
+		spring.set(window.scrollY, false)
+		setTimeout(() => {
+			spring.set(to)
+		}, 50)
+	}
+
 	return (
-		<header className="container mb-5 mt-10 flex flex-row place-content-between items-baseline bg-background">
-			<Logo />
-			<nav>
+		<>
+			<button
+				className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full border border-black bg-slate-700 opacity-50 md:bottom-16 md:right-16"
+				onClick={() => moveTo(0)}
+			>
+				<Icon name="arrow-up" className="h-8 w-8 text-slate-300" />
+			</button>
+			<div className="lg:hidden">
+				<Sheet open={sheetOpen} onOpenChange={open => setSheetOpen(open)}>
+					<SheetTrigger asChild>
+						<button>
+							<Icon name="hamburger-menu" className="h-8 w-8" />
+						</button>
+					</SheetTrigger>
+					<SheetContent className="w-screen">
+						<SheetHeader>
+							<SheetTitle>
+								<Logo className="!text-3xl" />
+							</SheetTitle>
+							<SheetDescription>
+								<ul className="mt-8 flex flex-col gap-8 font-title text-lg font-thin uppercase tracking-widest">
+									<li className="hover:font-bold">
+										<Link
+											to={{
+												pathname: '/',
+												hash: '#about',
+											}}
+											onClick={() => moveTo(110)}
+										>
+											About
+										</Link>
+									</li>
+									<li className="hover:font-bold">
+										<Link
+											to={{
+												pathname: '/',
+												hash: '#contact',
+											}}
+											onClick={() => moveTo(2300)}
+										>
+											Contact
+										</Link>
+									</li>
+									<li className="hover:font-bold">
+										<Link to="faq">FAQ</Link>
+									</li>
+									<li className="hover:font-bold">
+										<Link to="news">News</Link>
+									</li>
+								</ul>
+							</SheetDescription>
+						</SheetHeader>
+					</SheetContent>
+				</Sheet>
+			</div>
+			<nav className="hidden lg:block">
 				<ul className="flex flex-row space-x-8 font-title text-lg font-thin uppercase tracking-widest">
-					<li>About</li>
-					<li>Contact</li>
-					<li>FAQ</li>
-					<li>News</li>
+					<li className="hover:font-bold">
+						<Link
+							to={{
+								pathname: '/',
+								hash: '#about',
+							}}
+							onClick={() => moveTo(110)}
+						>
+							About
+						</Link>
+					</li>
+					<li className="hover:font-bold">
+						<Link
+							to={{
+								pathname: '/',
+								hash: '#contact',
+							}}
+							onClick={() => moveTo(2300)}
+						>
+							Contact
+						</Link>
+					</li>
+					<li className="hover:font-bold">
+						<Link to="faq">FAQ</Link>
+					</li>
+					<li className="hover:font-bold">
+						<Link to="news">News</Link>
+					</li>
 				</ul>
 			</nav>
+		</>
+	)
+}
+
+function Header() {
+	return (
+		<header className="container mb-2 mt-10 flex flex-row place-content-between place-items-center bg-background px-6  lg:mb-5 lg:items-baseline lg:px-8">
+			<Link to="/">
+				<Logo />
+			</Link>
+			<Navigation />
 		</header>
 	)
 }
 
-function Logo() {
+function Logo({ className }: { className?: string }) {
 	return (
-		<div className="font-title text-5xl font-thin uppercase tracking-[.4em] text-black">
+		<div
+			className={cn([
+				'font-title text-3xl font-thin uppercase tracking-[.4em] text-black md:text-5xl',
+				className,
+			])}
+		>
 			<span className="font-bold">Via</span> Nova
 		</div>
 	)
@@ -257,7 +380,7 @@ function Logo() {
 function Footer() {
 	return (
 		<footer>
-			<section className="container flex h-40 flex-col justify-between pb-2 pt-12 text-center ">
+			<section className="container  flex h-40 flex-col justify-between px-6 pb-2 pt-12 text-center md:px-8 ">
 				<div className="px-4">
 					Via Nova is an independent 501(c)(3) organization. All donations are
 					tax-deductible by law.

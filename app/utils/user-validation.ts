@@ -26,6 +26,11 @@ export const EmailSchema = z
 	// users can type the email in any case, but we store it in lowercase
 	.transform(value => value.toLowerCase())
 
+export const MessageSchema = z
+	.string({ required_error: 'Message is required' })
+	.min(10, { message: 'Message is too short' })
+	.max(1000, { message: 'Message is too long' })
+
 export const PasswordAndConfirmPasswordSchema = z
 	.object({ password: PasswordSchema, confirmPassword: PasswordSchema })
 	.superRefine(({ confirmPassword, password }, ctx) => {

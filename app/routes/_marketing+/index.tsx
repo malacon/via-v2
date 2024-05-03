@@ -1,4 +1,4 @@
-import { Tab } from '@headlessui/react'
+// import { Tab } from '@headlessui/react'
 import { type MetaFunction } from '@remix-run/node'
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
@@ -6,17 +6,25 @@ import EmployeeCarousel from '#app/components/employee-carousel.js'
 import PrayIcon from '#app/components/icon/pray.js'
 import StudyIcon from '#app/components/icon/study.js'
 import WorkIcon from '#app/components/icon/work.js'
+import {
+	Dialog,
+	DialogContent,
+	DialogTrigger,
+} from '#app/components/ui/dialog.js'
 import { Icon } from '#app/components/ui/icon.js'
+import ApplyForm from '#app/routes/resources+/apply-form'
+import SupportForm from '#app/routes/resources+/support-form'
 import { cn } from '#app/utils/misc.js'
+import InquiryForm from '../resources+/inquiry-form'
 
 export const meta: MetaFunction = () => [{ title: 'Via Nova' }]
 
 export default function Index() {
 	const images = ['/img/poetry.jpg', '/img/discuss.jpg']
 	const aboutImages = ['/img/work.jpg', '/img/work.jpg', '/img/pray.jpg']
-	const [selectedIndex, setSelectedIndex] = useState<undefined | number>(
-		undefined,
-	)
+	// const [selectedIndex, setSelectedIndex] = useState<undefined | number>(
+	// 	undefined,
+	// )
 
 	return (
 		<main>
@@ -130,42 +138,42 @@ export default function Index() {
 							</h2>
 							<p className="pb-12 text-center text-base font-light md:text-xl">
 								is the fullness of Catholics with various backgrounds
-								<br className="hidden md:block" /> coming together with a shared
+								<br className="hidden lg:block" /> coming together with a shared
 								desire for largely the same things:
 							</p>
 							<ul className="m-auto grid list-disc grid-flow-row grid-cols-1 gap-y-6 px-4 text-sm font-light md:grid-cols-2 md:gap-x-24 md:px-12 md:text-xl">
 								<li>
 									Knowledge of oneself,
-									<br className="hidden md:block" /> the world, and God
+									<br className="hidden lg:block" /> the world, and God
 								</li>
 								<li>
 									Habits of order
-									<br className="hidden md:block" />
+									<br className="hidden lg:block" />
 									and self-mastery
 								</li>
 								<li>
-									Meaningful work <br className="hidden md:block" />
+									Meaningful work <br className="hidden lg:block" />
 									in a potential career
 								</li>
 								<li>
 									An abiding love of God
-									<br className="hidden md:block" /> and neighbor
+									<br className="hidden lg:block" /> and neighbor
 								</li>
 								<li>
 									A deep capacity for
-									<br className="hidden md:block" /> prayer and meditation
+									<br className="hidden lg:block" /> prayer and meditation
 								</li>
 								<li>
 									Freedom from vice
-									<br className="hidden md:block" /> and attachment
+									<br className="hidden lg:block" /> and attachment
 								</li>
 								<li>
 									An ability to share
-									<br className="hidden md:block" /> the faith with confidence
+									<br className="hidden lg:block" /> the faith with confidence
 								</li>
 								<li>
 									A clear understanding
-									<br className="hidden md:block" /> of one's calling
+									<br className="hidden lg:block" /> of one's calling
 								</li>
 							</ul>
 						</div>
@@ -180,45 +188,122 @@ export default function Index() {
 			</section>
 			<section className="pb-0 pt-8 lg:pt-16" id="contact">
 				<div className="container p-6 md:p-8">
-					<Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
+					<div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-3">
+						<Dialog>
+							<DialogTrigger asChild className="cursor-pointer">
+								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
+									<h3 className="font-sans text-2xl">Apply to Via</h3>
+									<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+										<Icon
+											name="file-text"
+											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
+										/>
+									</div>
+									<p className="text-lg font-light leading-8">
+										Begin the application process to be a part of Via's
+										2024-2025 cohort.
+									</p>
+								</div>
+							</DialogTrigger>
+							<DialogContent className="container rounded-lg border border-slate-500 bg-slate-300 p-8 sm:max-w-[425px]">
+								<ApplyForm />
+							</DialogContent>
+						</Dialog>
+						<Dialog>
+							<DialogTrigger asChild className="cursor-pointer">
+								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
+									<h3 className="font-sans text-2xl">Support Us</h3>
+									<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+										<Icon
+											name="trash"
+											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
+										/>
+									</div>
+									<p className="text-lg font-light leading-8">
+										Support Via through prayer, a donation, or both.
+									</p>
+								</div>
+							</DialogTrigger>
+							<DialogContent className="container rounded-lg border border-slate-500 bg-slate-300 p-8 sm:max-w-[425px]">
+								<SupportForm />
+							</DialogContent>
+						</Dialog>
+						<Dialog>
+							<DialogTrigger asChild className="cursor-pointer">
+								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
+									<h3 className="font-sans text-2xl">Learn More</h3>
+									<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+										<Icon
+											name="magnifying-glass"
+											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
+										/>
+									</div>
+									<p className="text-lg font-light leading-8">
+										Request more information about Via.
+									</p>
+								</div>
+							</DialogTrigger>
+							<DialogContent className="container rounded-lg border border-slate-500 bg-slate-300 p-8 sm:max-w-[425px]">
+								<InquiryForm />
+							</DialogContent>
+						</Dialog>
+					</div>
+					{/* <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
 						<Tab.List className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-3">
 							<Tab data-headlessui-state="selected" className="hidden"></Tab>
-							<Tab className="flex flex-col place-items-center gap-2">
+							<Tab className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 								<h3 className="font-sans text-2xl">Apply to Via</h3>
-								<div className=" rounded-full border-4 border-background-img p-4">
-									<Icon name="file-text" className="h-12 w-12" />
+								<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+									<Icon
+										name="file-text"
+										className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
+									/>
 								</div>
 								<p className="text-lg font-light leading-8">
 									Begin the application process to be a part of Via's 2024-2025
 									cohort.
 								</p>
 							</Tab>
-							<Tab className="flex flex-col place-items-center gap-2">
+							<Tab className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 								<h3 className="font-sans text-2xl">Support Us</h3>
-								<div className=" rounded-full border-4 border-background-img p-4">
-									<Icon name="trash" className="h-12 w-12" />
+								<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+									<Icon
+										name="trash"
+										className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
+									/>
 								</div>
 								<p className="text-lg font-light leading-8">
 									Support Via through prayer, a donation, or both.
 								</p>
 							</Tab>
-							<Tab className="flex flex-col place-items-center gap-2">
+							<Tab className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 								<h3 className="font-sans text-2xl">Learn More</h3>
-								<div className=" rounded-full border-4 border-background-img p-4">
-									<Icon name="magnifying-glass" className="h-12 w-12" />
+								<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+									<Icon
+										name="magnifying-glass"
+										className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
+									/>
 								</div>
 								<p className="text-lg font-light leading-8">
 									Request more information about Via.
 								</p>
 							</Tab>
 						</Tab.List>
-						<Tab.Panels className="mx-auto w-fit">
-							<Tab.Panel></Tab.Panel>
-							<Tab.Panel>Check back soon.</Tab.Panel>
-							<Tab.Panel>Check back soon.</Tab.Panel>
-							<Tab.Panel>Check back soon.</Tab.Panel>
-						</Tab.Panels>
-					</Tab.Group>
+						<div className="mx-auto flex w-full justify-center px-4 pt-8 md:px-0">
+							<Tab.Panels className="mx-auto w-fit">
+								<Tab.Panel></Tab.Panel>
+								<Tab.Panel>
+									<ApplyForm />
+								</Tab.Panel>
+								<Tab.Panel>
+									<SupportForm />
+								</Tab.Panel>
+								<Tab.Panel>
+									<InquiryForm />
+								</Tab.Panel>
+							</Tab.Panels>
+						</div>
+					</Tab.Group> */}
 				</div>
 			</section>
 			<section className="flex flex-col space-y-4 bg-background pb-4 xl:px-20">

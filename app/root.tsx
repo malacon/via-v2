@@ -247,10 +247,19 @@ function Navigation() {
 	const [sheetOpen, setSheetOpen] = useState(false)
 
 	useLayoutEffect(() => {
+		const handleWheel = () => {
+			spring.stop() // Stop the spring animation on wheel scroll
+		}
+
+		window.addEventListener('wheel', handleWheel)
+
 		spring.on('change', latest => {
-			console.log(latest)
 			window.scrollTo(0, latest)
 		})
+
+		return () => {
+			window.removeEventListener('wheel', handleWheel)
+		}
 	}, [spring])
 
 	function moveTo(to: number) {
@@ -300,7 +309,12 @@ function Navigation() {
 												pathname: '/',
 												hash: '#contact',
 											}}
-											onClick={() => moveTo(2300)}
+											onClick={() =>
+												moveTo(
+													document?.getElementById('contact')?.offsetTop ||
+														2100,
+												)
+											}
 										>
 											Contact
 										</Link>

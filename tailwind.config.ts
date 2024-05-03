@@ -46,6 +46,7 @@ export default {
 				foreground: {
 					DEFAULT: 'hsl(var(--foreground))',
 					danger: 'hsl(var(--foreground-danger))',
+					destructive: 'red',
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',

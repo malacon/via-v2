@@ -21,7 +21,7 @@ export const meta: MetaFunction = () => [{ title: 'Via Nova' }]
 
 export default function Index() {
 	const images = ['/img/poetry.jpg', '/img/discuss.jpg']
-	const aboutImages = ['/img/work.jpg', '/img/work.jpg', '/img/pray.jpg']
+	const aboutImages = ['/img/study.jpg', '/img/work.jpg', '/img/pray.jpg']
 	// const [selectedIndex, setSelectedIndex] = useState<undefined | number>(
 	// 	undefined,
 	// )
@@ -58,7 +58,8 @@ export default function Index() {
 				<div className="container flex flex-col gap-8 px-6 md:px-8 lg:flex-row">
 					<div className="text-center text-3xl leading-10 text-accent-dark md:text-6xl md:leading-[5.25rem] lg:w-1/3 lg:text-left">
 						Via Fellows live a life of <span className="font-bold">study</span>,{' '}
-						<span className="font-bold">work</span>, &{' '}
+						<span className="font-bold">work</span>,{' '}
+						<br className="hidden xl:block" />&{' '}
 						<span className="font-bold">prayer</span>.
 					</div>
 					<div className=" container flex w-full flex-col place-content-between gap-8 text-center lg:w-2/3 lg:gap-0 lg:text-left">
@@ -103,7 +104,7 @@ export default function Index() {
 				</div>
 				<div className="hidden h-72 flex-row gap-0 lg:flex">
 					<ImageOverlay
-						src="/img/work.jpg"
+						src="/img/study.jpg"
 						alt="Via at Study"
 						className="flex-1 "
 						imageClass="object-cover"

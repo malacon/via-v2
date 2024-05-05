@@ -165,7 +165,7 @@ export default function EmployeeCarousel() {
 						>
 							<div className=" p-1">
 								<Card className=" h-[370px] bg-slate-700">
-									<CardContent className="flex items-center justify-center  p-6 text-white">
+									<CardContent className="flex items-center justify-center  p-6 pt-12 text-white">
 										{/* <p className="before:content-['] text-xl font-light leading-8">
 												{quote}
 											</p> */}
@@ -176,7 +176,7 @@ export default function EmployeeCarousel() {
 													<AvatarFallback>tn</AvatarFallback>
 												</Avatar>
 											</div>
-											<div className="flex w-full flex-col text-center">
+											<div className="flex w-full flex-col pt-4 text-center">
 												<p className="text-center text-2xl">{name}</p>
 												<p className="text-center text-base">{title}</p>
 											</div>

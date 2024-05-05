@@ -1,6 +1,7 @@
 // import { Tab } from '@headlessui/react'
 import { type MetaFunction } from '@remix-run/node'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Cross, CrossIcon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import EmployeeCarousel from '#app/components/employee-carousel.js'
 import PrayIcon from '#app/components/icon/pray.js'
@@ -20,7 +21,12 @@ import InquiryForm from '../resources+/inquiry-form'
 export const meta: MetaFunction = () => [{ title: 'Via Nova' }]
 
 export default function Index() {
-	const images = ['/img/poetry.jpg', '/img/discuss.jpg']
+	const images = [
+		'/img/poetry.jpg',
+		'/img/discuss.jpg',
+		'/img/sushi.jpg',
+		'/img/foley.jpg',
+	]
 	const aboutImages = ['/img/study.jpg', '/img/work.jpg', '/img/pray.jpg']
 	// const [selectedIndex, setSelectedIndex] = useState<undefined | number>(
 	// 	undefined,
@@ -134,13 +140,16 @@ export default function Index() {
 				<div className="flex flex-col flex-wrap lg:container  lg:flex-row lg:pr-0">
 					<div className="container px-6 py-12 md:px-8  lg:w-2/3 lg:flex-1 lg:pr-4">
 						<div className=" text-gray-100">
-							<h2 className="pb-8 text-center text-2xl font-light md:text-3xl">
+							{/* <h2 className="pb-8 text-center text-2xl font-light md:text-3xl">
 								The richness of life at Via
-							</h2>
+							</h2> */}
 							<p className="pb-12 text-center text-base font-light md:text-xl">
-								is the fullness of Catholics with various backgrounds
+								This life of study, work, and prayer aims to provide
+								participants with a simple but very full life, experienced in a
+								community of people who desire largely the same things, namely:
+								{/* is the fullness of Catholics with various backgrounds
 								<br className="hidden lg:block" /> coming together with a shared
-								desire for largely the same things:
+								desire for largely the same things: */}
 							</p>
 							<ul className="m-auto grid list-disc grid-flow-row grid-cols-1 gap-y-6 px-4 text-sm font-light md:grid-cols-2 md:gap-x-24 md:px-12 md:text-xl">
 								<li>
@@ -194,13 +203,19 @@ export default function Index() {
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 									<h3 className="font-sans text-2xl">Apply to Via</h3>
-									<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+									{/* <div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
 										<Icon
 											name="file-text"
 											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 										/>
+									</div> */}
+									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
+										<Icon
+											name="file-text"
+											className="h-12 w-12 text-gray-100"
+										/>
 									</div>
-									<p className="text-lg font-light leading-8">
+									<p className="text-pretty text-center text-lg font-light leading-8">
 										Begin the application process to be a part of Via's
 										2024-2025 cohort.
 									</p>
@@ -214,13 +229,17 @@ export default function Index() {
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 									<h3 className="font-sans text-2xl">Support Us</h3>
-									<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
+										{/* <Icon name="trash" className="h-12 w-12 text-gray-100" /> */}
+										<CrossIcon className="h-12 w-12 text-gray-100" />
+									</div>
+									{/* <div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
 										<Icon
 											name="trash"
 											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 										/>
-									</div>
-									<p className="text-lg font-light leading-8">
+									</div> */}
+									<p className="text-pretty text-center text-lg font-light leading-8">
 										Support Via through prayer, a donation, or both.
 									</p>
 								</div>
@@ -233,13 +252,19 @@ export default function Index() {
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 									<h3 className="font-sans text-2xl">Learn More</h3>
-									<div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
+									{/* <div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
 										<Icon
 											name="magnifying-glass"
 											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 										/>
+									</div> */}
+									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
+										<Icon
+											name="magnifying-glass"
+											className="h-12 w-12 text-gray-100"
+										/>
 									</div>
-									<p className="text-lg font-light leading-8">
+									<p className="text-pretty text-center text-lg font-light leading-8">
 										Request more information about Via.
 									</p>
 								</div>
@@ -260,7 +285,7 @@ export default function Index() {
 										className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 									/>
 								</div>
-								<p className="text-lg font-light leading-8">
+								<p className="text-lg font-light leading-8 text-center">
 									Begin the application process to be a part of Via's 2024-2025
 									cohort.
 								</p>
@@ -273,7 +298,7 @@ export default function Index() {
 										className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 									/>
 								</div>
-								<p className="text-lg font-light leading-8">
+								<p className="text-lg font-light leading-8 text-center">
 									Support Via through prayer, a donation, or both.
 								</p>
 							</Tab>
@@ -285,7 +310,7 @@ export default function Index() {
 										className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 									/>
 								</div>
-								<p className="text-lg font-light leading-8">
+								<p className="text-lg font-light leading-8 text-center">
 									Request more information about Via.
 								</p>
 							</Tab>

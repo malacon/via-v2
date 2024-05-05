@@ -20,7 +20,7 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 // import { withSentry } from '@sentry/remix'
-import { useSpring } from 'framer-motion'
+import { motion, useSpring } from 'framer-motion'
 import { useLayoutEffect, useState } from 'react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
@@ -244,11 +244,17 @@ function App() {
 
 function Navigation() {
 	const spring = useSpring(0, { damping: 100, stiffness: 200 })
+	const [currentLocation, setCurrentLocation] = useState(0)
 	const [sheetOpen, setSheetOpen] = useState(false)
 
 	useLayoutEffect(() => {
+		setCurrentLocation(window.scrollY)
 		const handleWheel = () => {
-			spring.stop() // Stop the spring animation on wheel scroll
+			console.log('Wheel!', spring.get())
+			// spring.set(window.scrollY, false)
+
+			console.log('currentLoc:::', currentLocation)
+			// spring.animation?.stop() // Stop the spring animation on wheel scroll
 		}
 
 		window.addEventListener('wheel', handleWheel)
@@ -258,26 +264,28 @@ function Navigation() {
 		})
 
 		return () => {
-			window.removeEventListener('wheel', handleWheel)
+			window.removeEventListener('scroll', handleWheel)
 		}
 	}, [spring])
 
 	function moveTo(to: number) {
+		setCurrentLocation(to)
 		setSheetOpen(false)
 		spring.set(window.scrollY, false)
 		setTimeout(() => {
-			spring.set(to)
+			console.log('currentLoc', currentLocation)
+			spring.set(currentLocation)
 		}, 50)
 	}
 
 	return (
 		<>
-			<button
+			<motion.button
 				className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full border border-black bg-slate-700 opacity-50 md:bottom-16 md:right-16"
 				onClick={() => moveTo(0)}
 			>
 				<Icon name="arrow-up" className="h-8 w-8 text-slate-300" />
-			</button>
+			</motion.button>
 			<div className="lg:hidden">
 				<Sheet open={sheetOpen} onOpenChange={open => setSheetOpen(open)}>
 					<SheetTrigger asChild>
@@ -291,7 +299,7 @@ function Navigation() {
 								<Logo className="!text-3xl" />
 							</SheetTitle>
 							<SheetDescription>
-								<ul className="mt-8 flex flex-col gap-8 font-title text-lg font-thin uppercase tracking-widest">
+								<ul className="font-nav mt-8 flex flex-col gap-8 text-lg font-normal uppercase tracking-widest">
 									<li className="hover:font-bold">
 										<Link
 											to={{
@@ -332,7 +340,7 @@ function Navigation() {
 				</Sheet>
 			</div>
 			<nav className="hidden lg:block">
-				<ul className="flex flex-row space-x-8 font-title text-lg font-thin uppercase tracking-widest">
+				<ul className="font-nav flex flex-row space-x-8 text-lg font-normal uppercase tracking-widest">
 					<li className="hover:font-bold">
 						<Link
 							to={{
@@ -382,11 +390,17 @@ function Logo({ className }: { className?: string }) {
 	return (
 		<div
 			className={cn([
-				'font-title text-3xl font-thin uppercase tracking-[.4em] text-black md:text-5xl',
+				'font-title text-3xl font-thin uppercase tracking-[.2em] text-black md:text-5xl',
 				className,
 			])}
 		>
-			<span className="font-bold">Via</span> Nova
+			<img
+				src="/img/via-logo.svg"
+				alt="Via Nova"
+				className="h-14 w-auto fill-slate-900"
+			/>{' '}
+			{/* Via Nova */}
+			{/* <span className="font-semibold">Via</span> Nova */}
 		</div>
 	)
 }

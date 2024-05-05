@@ -7,7 +7,8 @@
 		--text: 0, 0%, 3%;
 		--font-serif: Poppins, Nunito Sans, Nunito Sans Fallback;
 		--font-sans: Adobe Garamond Pro, Garamond, Times New Roman, serif;
-		--font-title: Arial, serif;
+		--font-title: '"EB Garamond", Arial, serif';
+		--font-nav: 'Arial, serif';
 		/* --font-mono: here if you got it... */
 
 		/* prefixed with foreground because it should look good on the background */

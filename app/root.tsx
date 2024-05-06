@@ -20,8 +20,7 @@ import {
 	useLoaderData,
 } from '@remix-run/react'
 // import { withSentry } from '@sentry/remix'
-import { motion, useSpring } from 'framer-motion'
-import { useLayoutEffect, useState } from 'react'
+import { useState } from 'react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
@@ -50,6 +49,7 @@ import { useRequestInfo } from './utils/request-info.ts'
 import { type Theme, setTheme, getTheme } from './utils/theme.server.ts'
 import { makeTimings, time } from './utils/timing.server.ts'
 import { getToast } from './utils/toast.server.ts'
+import useScrollBehavior from './utils/use-scroll-behavior.tsx'
 
 export const links: LinksFunction = () => {
 	return [
@@ -243,49 +243,16 @@ function App() {
 }
 
 function Navigation() {
-	const spring = useSpring(0, { damping: 100, stiffness: 200 })
-	const [currentLocation, setCurrentLocation] = useState(0)
 	const [sheetOpen, setSheetOpen] = useState(false)
-
-	useLayoutEffect(() => {
-		setCurrentLocation(window.scrollY)
-		const handleWheel = () => {
-			console.log('Wheel!', spring.get())
-			// spring.set(window.scrollY, false)
-
-			console.log('currentLoc:::', currentLocation)
-			// spring.animation?.stop() // Stop the spring animation on wheel scroll
-		}
-
-		window.addEventListener('wheel', handleWheel)
-
-		spring.on('change', latest => {
-			window.scrollTo(0, latest)
-		})
-
-		return () => {
-			window.removeEventListener('scroll', handleWheel)
-		}
-	}, [spring])
-
-	function moveTo(to: number) {
-		setCurrentLocation(to)
-		setSheetOpen(false)
-		spring.set(window.scrollY, false)
-		setTimeout(() => {
-			console.log('currentLoc', currentLocation)
-			spring.set(currentLocation)
-		}, 50)
-	}
-
+	useScrollBehavior(sheetOpen)
 	return (
 		<>
-			<motion.button
-				className="fixed bottom-6 right-6 z-50 h-12 w-12 rounded-full border border-black bg-slate-700 opacity-50 md:bottom-16 md:right-16"
-				onClick={() => moveTo(0)}
+			<Link
+				to={{ pathname: '/' }}
+				className="fixed bottom-6 right-6 z-50 flex h-12 w-12 place-items-center justify-center rounded-full border border-black bg-slate-700 opacity-50 hover:opacity-75 md:bottom-16 md:right-16"
 			>
 				<Icon name="arrow-up" className="h-8 w-8 text-slate-300" />
-			</motion.button>
+			</Link>
 			<div className="lg:hidden">
 				<Sheet open={sheetOpen} onOpenChange={open => setSheetOpen(open)}>
 					<SheetTrigger asChild>
@@ -306,7 +273,7 @@ function Navigation() {
 												pathname: '/',
 												hash: '#about',
 											}}
-											onClick={() => moveTo(110)}
+											onClick={() => setSheetOpen(false)}
 										>
 											About
 										</Link>
@@ -317,12 +284,7 @@ function Navigation() {
 												pathname: '/',
 												hash: '#contact',
 											}}
-											onClick={() =>
-												moveTo(
-													document?.getElementById('contact')?.offsetTop ||
-														2100,
-												)
-											}
+											onClick={() => setSheetOpen(false)}
 										>
 											Contact
 										</Link>
@@ -347,7 +309,7 @@ function Navigation() {
 								pathname: '/',
 								hash: '#about',
 							}}
-							onClick={() => moveTo(110)}
+							onClick={() => setSheetOpen(false)}
 						>
 							About
 						</Link>
@@ -358,7 +320,7 @@ function Navigation() {
 								pathname: '/',
 								hash: '#contact',
 							}}
-							onClick={() => moveTo(2300)}
+							onClick={() => setSheetOpen(false)}
 						>
 							Contact
 						</Link>

@@ -102,3 +102,15 @@
 		scroll-behavior: auto;
 	}
 }
+
+@media (max-width: 1024px) {
+	html {
+		scroll-behavior: initial;
+	}
+}
+
+@media (min-width: 1024px) {
+	html {
+		scroll-behavior: smooth;
+	}
+}

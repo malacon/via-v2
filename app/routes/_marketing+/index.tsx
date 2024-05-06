@@ -1,7 +1,7 @@
 // import { Tab } from '@headlessui/react'
 import { type MetaFunction } from '@remix-run/node'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Cross, CrossIcon } from 'lucide-react'
+import { CrossIcon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import EmployeeCarousel from '#app/components/employee-carousel.js'
 import PrayIcon from '#app/components/icon/pray.js'

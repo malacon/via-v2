@@ -1,7 +1,7 @@
 // import { Tab } from '@headlessui/react'
 import { type MetaFunction } from '@remix-run/node'
 import { AnimatePresence, motion } from 'framer-motion'
-import { CrossIcon } from 'lucide-react'
+import { GiftIcon } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import EmployeeCarousel from '#app/components/employee-carousel.js'
 import PrayIcon from '#app/components/icon/pray.js'
@@ -231,7 +231,7 @@ export default function Index() {
 									<h3 className="font-sans text-2xl">Support Us</h3>
 									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
 										{/* <Icon name="trash" className="h-12 w-12 text-gray-100" /> */}
-										<CrossIcon className="h-12 w-12 text-gray-100" />
+										<GiftIcon className="h-12 w-12 text-gray-100" />
 									</div>
 									{/* <div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
 										<Icon

@@ -18,16 +18,26 @@ import SupportForm from '#app/routes/resources+/support-form'
 import { cn } from '#app/utils/misc.js'
 import InquiryForm from '../resources+/inquiry-form'
 
+import banner from '/img/mountain-help.jpg'
+import poetry from '/img/poetry.jpg'
+import discuss from '/img/discuss.jpg'
+import sushi from '/img/sushi.jpg'
+import foley from '/img/foley.jpg'
+import studyAbout from '/img/study.jpg'
+import workAbout from '/img/work.jpg'
+import prayAbout from '/img/pray.jpg'
+
 export const meta: MetaFunction = () => [{ title: 'Via Nova' }]
 
 export default function Index() {
-	const images = [
-		'/img/poetry.jpg',
-		'/img/discuss.jpg',
-		'/img/sushi.jpg',
-		'/img/foley.jpg',
-	]
-	const aboutImages = ['/img/study.jpg', '/img/work.jpg', '/img/pray.jpg']
+	// const images = [
+	// 	'/img/poetry.jpg',
+	// 	'/img/discuss.jpg',
+	// 	'/img/sushi.jpg',
+	// 	'/img/foley.jpg',
+	// ]
+	const images = [poetry, discuss, sushi, foley]
+	const aboutImages = [studyAbout, workAbout, prayAbout]
 	// const [selectedIndex, setSelectedIndex] = useState<undefined | number>(
 	// 	undefined,
 	// )
@@ -39,7 +49,7 @@ export default function Index() {
 				className="mb-16 h-fit scroll-smooth bg-background-muted text-background lg:mb-16 "
 			>
 				<ImageOverlay
-					src="/img/mountain-help.jpg"
+					src={banner}
 					alt="Descriptive Alt Text"
 					className="h-[450px] w-screen overflow-hidden md:h-[640px] lg:h-[480px]"
 					gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-700/80 md:to-blue-500/30"

@@ -7,11 +7,11 @@ for file in *.png *.jpg *.jpeg; do
         # Get the file size in bytes
         filesize=$(stat -f%z "$file")
         # Check if the file size is greater than 2MB (2097152 bytes)
-        if [ $filesize -gt 2097152 ]; then
+        if [ $filesize -gt 1097152 ]; then
             # Compress the file using ImageMagick
             mogrify -resize 80% -quality 85 "$file"
             # Repeat the size check and compression until the file is under 2MB
-            while [ $(stat -f%z "$file") -gt 2097152 ]; do
+            while [ $(stat -f%z "$file") -gt 1097152 ]; do
                 mogrify -resize 90% -quality 85 "$file"
             done
             echo "Compressed: $file"

@@ -46,14 +46,14 @@ export default function Index() {
 				>
 					<div className="container space-y-10  px-6 text-base sm:text-lg md:px-8 md:text-xl">
 						<p className="md:w-2/3 lg:w-2/5">
-							Via Nova offers a 10-month, live-in experience of intensive
+							Via Nova offers a 9-month, live-in experience of intensive
 							intellectual, professional, and spiritual formation for Catholics
-							ages 18-21. Formation at Via Nova is centered in the ancient
+							ages 18-22. Life in Via Nova is centered around the ancient
 							formula of <b>study</b>, <b>work</b>, & <b>prayer</b>.
 						</p>
 						<p className="md:w-2/3 lg:w-2/5">
 							Through seminars, apprenticeships, spiritual regimens, and more,
-							Via Nova offers participants a via nova, that is, a "new way" of
+							Via Nova offers participants a via nova, that is "a new way" of
 							forming life-changing habits, acquiring practical knowledge, and
 							ultimately enjoying a life of freedom and mission.
 						</p>
@@ -74,9 +74,9 @@ export default function Index() {
 								<StudyIcon className="h-12 w-12 text-gray-100" />
 							</div>
 							<p className="flex-1 text-lg md:text-xl">
-								Seminars exploring the literary and philosophical foundations of
-								Western society, beginning with Ancient Israel, Greece, and
-								Rome.
+								Studies in Via consists of seminars on ancient literature and
+								philosophy, featuring Israel, Babylon, Greece, and early
+								Christianity.
 							</p>
 						</div>
 						<div className="flex flex-col items-center gap-8 lg:flex-row">
@@ -84,9 +84,9 @@ export default function Index() {
 								<WorkIcon className="h-12 w-12 text-gray-100" />
 							</div>
 							<p className="flex-1 text-lg md:text-xl">
-								Apprenticeships with Catholic professionals who are dedicated to
-								preparing Fellows for success in their respective career path of
-								interest.
+								Work consists of apprenticeships with Catholic professionals who
+								are dedicated to preparing participants for success in their
+								respective career paths of interest.
 							</p>
 						</div>
 						<div className="flex flex-col items-center gap-8 lg:flex-row">
@@ -94,8 +94,9 @@ export default function Index() {
 								<PrayIcon className="h-12 w-12 text-gray-100" />
 							</div>
 							<p className="flex-1 text-lg md:text-xl">
-								Frequent time in silent prayer, spiritual reading, and the
-								sacraments with the guidance of spiritual directors.
+								Prayer consists of frequent time in silent prayer, spiritual
+								reading, and the sacraments under the guidance of spiritual
+								directors.
 							</p>
 						</div>
 					</div>
@@ -202,14 +203,14 @@ export default function Index() {
 						<Dialog>
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
-									<h3 className="font-sans text-2xl">Apply to Via</h3>
+									<h3 className="font-serif text-2xl">Apply to Via</h3>
 									{/* <div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
 										<Icon
 											name="file-text"
 											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 										/>
 									</div> */}
-									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
+									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:bg-slate-500">
 										<Icon
 											name="file-text"
 											className="h-12 w-12 text-gray-100"
@@ -228,8 +229,8 @@ export default function Index() {
 						<Dialog>
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
-									<h3 className="font-sans text-2xl">Support Us</h3>
-									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
+									<h3 className="font-serif text-2xl">Support Us</h3>
+									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:bg-slate-500">
 										{/* <Icon name="trash" className="h-12 w-12 text-gray-100" /> */}
 										<GiftIcon className="h-12 w-12 text-gray-100" />
 									</div>
@@ -251,14 +252,14 @@ export default function Index() {
 						<Dialog>
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
-									<h3 className="font-sans text-2xl">Learn More</h3>
+									<h3 className="font-serif text-2xl">Learn More</h3>
 									{/* <div className="rounded-full border-4 border-background-img p-4 group-hover:border-slate-500 group-focus-visible:border-slate-500">
 										<Icon
 											name="magnifying-glass"
 											className="h-12 w-12 group-hover:text-slate-500 group-focus-visible:text-slate-500"
 										/>
 									</div> */}
-									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:border-slate-500">
+									<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400 group-hover:bg-slate-500">
 										<Icon
 											name="magnifying-glass"
 											className="h-12 w-12 text-gray-100"

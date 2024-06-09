@@ -74,16 +74,17 @@ export default function SupportForm() {
 
 	return (
 		<div className="w-full">
-			<h3 className="pb-6 font-sans text-2xl">Support Us</h3>
+			<h3 className="pb-6 font-serif text-2xl">Support Us</h3>
 			<div className="flex w-full flex-col justify-center gap-1">
 				<p>To go straight to our giving page, please click the button below.</p>
-				<Button asChild size="default" variant="default">
+				<Button asChild size="lg" variant="default" className="text-xl">
 					<a
 						target="_blank"
+						className="text-2xl"
 						href="https://vianova.stellarwebsystems.com/donations/pool/79bdb7d4-264e-11ee-9cac-16118fddfe69"
 						rel="noreferrer"
 					>
-						Give
+						Give Now
 					</a>
 				</Button>
 			</div>

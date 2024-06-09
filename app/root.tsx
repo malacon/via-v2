@@ -266,9 +266,11 @@ function Navigation() {
 								<Logo className="!text-3xl" />
 							</SheetTitle>
 							<SheetDescription>
-								<ul className="font-nav mt-8 flex flex-col gap-8 text-lg font-normal uppercase tracking-widest">
+								<ul className="font-nav ml-3 mt-8 flex flex-col gap-8 text-lg font-normal uppercase tracking-widest">
+									{/* I would like the ancors to be full width for maximum clicability */}
 									<li className="hover:font-bold">
 										<Link
+											className="w-full"
 											to={{
 												pathname: '/',
 												hash: '#about',
@@ -302,7 +304,7 @@ function Navigation() {
 				</Sheet>
 			</div>
 			<nav className="hidden lg:block">
-				<ul className="font-nav flex flex-row space-x-8 text-lg font-normal uppercase tracking-widest">
+				<ul className="font-nav mt-5 flex flex-row space-x-8 text-lg font-normal uppercase tracking-widest">
 					<li className="hover:font-bold">
 						<Link
 							to={{
@@ -339,7 +341,7 @@ function Navigation() {
 
 function Header() {
 	return (
-		<header className="container mb-2 mt-10 flex flex-row place-content-between place-items-center bg-background px-6  lg:mb-5 lg:items-baseline lg:px-8">
+		<header className="container mb-2 mt-10 flex flex-row place-content-between place-items-center justify-items-center bg-background px-6  lg:mb-5 lg:items-center lg:px-8">
 			<Link to="/">
 				<Logo />
 			</Link>
@@ -357,7 +359,7 @@ function Logo({ className }: { className?: string }) {
 			])}
 		>
 			<img
-				src="/img/via-logo.svg"
+				src="/img/logo.png"
 				alt="Via Nova"
 				className="h-14 w-auto fill-slate-900"
 			/>{' '}

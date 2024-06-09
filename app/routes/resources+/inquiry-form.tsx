@@ -77,7 +77,7 @@ export default function InquiryForm() {
 
 	return (
 		<div className="w-full">
-			<h3 className="pb-6 font-sans text-2xl">Learn More</h3>
+			<h3 className="pb-6 font-serif text-2xl">Learn More</h3>
 			<Form
 				method="post"
 				action={ACTION}

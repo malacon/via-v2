@@ -37,7 +37,7 @@ const faqs: Faq[] = [
 	{
 		title: 'What does a typical week look like at Via?',
 		answer: 'Below is an example of a typical week at Via.',
-		img: '/img/weekly-schedule.png',
+		img: '/img/weekly-schedule.jpeg',
 	},
 	{
 		title: 'What do Via Fellows study?',
@@ -61,11 +61,11 @@ export default function FAQRoute() {
 	return (
 		<section id="faq" className="relative min-h-[1250px] bg-section">
 			<ImageOverlay src="/img/via4.png" position="46% 78%" opacity="0.0" />
-			<div className="relative z-20 mx-auto flex w-[800px] flex-col space-y-10 p-6 md:p-12">
+			<div className="relative z-20 mx-auto flex w-[800px] flex-col space-y-10 p-6 font-serif md:p-12">
 				<Accordion type="single" collapsible className="w-full">
 					{faqs.map(({ answer, img, title }) => (
 						<AccordionItem key={title} value={title}>
-							<AccordionTrigger className="pb-8 font-title text-3xl">
+							<AccordionTrigger className="pb-8 font-serif  text-3xl">
 								{title}
 							</AccordionTrigger>
 							<AccordionContent className="text-2xl leading-8">

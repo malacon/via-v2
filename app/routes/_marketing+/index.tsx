@@ -58,8 +58,7 @@ export default function Index() {
 						<p className="md:w-2/3 lg:w-2/5">
 							Via Nova offers a 9-month, live-in experience of intensive
 							intellectual, professional, and spiritual formation for Catholics
-							ages 18-22. Life in Via Nova is centered around the ancient
-							formula of <b>study</b>, <b>work</b>, & <b>prayer</b>.
+							ages 18-22.
 						</p>
 						<p className="md:w-2/3 lg:w-2/5">
 							Through seminars, apprenticeships, spiritual regimens, and more,
@@ -73,7 +72,8 @@ export default function Index() {
 			<section className="mb-20 flex flex-col gap-24">
 				<div className="container flex flex-col gap-8 px-6 md:px-8 lg:flex-row">
 					<div className="text-center text-3xl leading-10 text-accent-dark md:text-6xl md:leading-[5.25rem] lg:w-1/3 lg:text-left">
-						Via Fellows live a life of <span className="font-bold">study</span>,{' '}
+						Life in Via Nova is centered around the ancient formula of{' '}
+						<span className="font-bold">study</span>,{' '}
 						<span className="font-bold">work</span>,{' '}
 						<br className="hidden xl:block" />&{' '}
 						<span className="font-bold">prayer</span>.

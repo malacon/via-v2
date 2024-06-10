@@ -294,9 +294,9 @@ function Navigation() {
 									<li className="hover:font-bold">
 										<Link to="faq">FAQ</Link>
 									</li>
-									<li className="hover:font-bold">
+									{/* <li className="hover:font-bold">
 										<Link to="news">News</Link>
-									</li>
+									</li> */}
 								</ul>
 							</SheetDescription>
 						</SheetHeader>
@@ -330,9 +330,9 @@ function Navigation() {
 					<li className="hover:font-bold">
 						<Link to="faq">FAQ</Link>
 					</li>
-					<li className="hover:font-bold">
+					{/* <li className="hover:font-bold">
 						<Link to="news">News</Link>
-					</li>
+					</li> */}
 				</ul>
 			</nav>
 		</>

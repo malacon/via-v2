@@ -19,10 +19,15 @@ const faqs: Faq[] = [
 	// 	answer:
 	// 		'In so far as learning and growth occur, yes, Via is a school.  However, the academic formation is only one of several parts of the overall experience, so we think of it as a formation program or a bridge year.',
 	// },
+	// {
+	// 	title: 'What are the ages of Via Fellows?',
+	// 	answer:
+	// 		"Fellows applying to the 2024-2025 cohort should be between ages 18 and 21 by August 2024.  Some of Via's current Fellows graduated from high school the spring prior to beginning the program, while others were already full-time university students before beginning Via.",
+	// },
 	{
-		title: 'What are the ages of Via Fellows?',
+		title: 'How old do I need to be to apply to Via?',
 		answer:
-			"Fellows applying to the 2024-2025 cohort should be between ages 18 and 21 by August 2024.  Some of Via's current Fellows graduated from high school the spring prior to beginning the program, while others were already full-time university students before beginning Via.",
+			'Fellows applying to the 2024-2025 cohort should be between ages 18 and 22 by August of 2024.',
 	},
 	{
 		title: 'Is Via Catholic?',
@@ -30,7 +35,7 @@ const faqs: Faq[] = [
 			'We believe that the Catholic Church is the Church founded by Christ Jesus. All of Via’s leadership and staff members are practicing Roman Catholics.',
 	},
 	{
-		title: 'Is it co-ed?',
+		title: 'Is Via co-ed?',
 		answer:
 			"Via has both a men's house and a women's house.  The men's and the women's cohorts come together for all of the seminars, and for all of the community events.",
 	},
@@ -42,13 +47,13 @@ const faqs: Faq[] = [
 	{
 		title: 'What do Via Fellows study?',
 		answer:
-			'Via’s seminars focus on the foundations of Western civilization, featuring the literature and philosophy of ancient Babylon, Israel, Greece, Rome, and Christianity.',
+			'Via’s seminars focus on the foundations of Western civilization, featuring the literature and philosophy of ancient Israel, Babylon, Greece, Rome, and Christianity.  Major attention is given throughout the year to the Old Testament, the Homeric epics, the philosophy of Plato and Aristotle, selected readings from various Latin poets and philosophers, the New Testament, and the Church Fathers.',
 	},
-	{
-		title: 'How much does it cost?',
-		answer:
-			'All of Via’s costs are covered by the generous donations of members of the wider Church.  Because Fellows’ formation is ultimately aimed at entering a life of service for the wider Church community, we believe their formation should be provided for by the wider Church community.',
-	},
+	// {
+	// 	title: 'How much does it cost?',
+	// 	answer:
+	// 		'All of Via’s costs are covered by the generous donations of members of the wider Church.  Because Fellows’ formation is ultimately aimed at entering a life of service for the wider Church community, we believe their formation should be provided for by the wider Church community.',
+	// },
 ]
 
 export async function loader({ request }: LoaderFunctionArgs) {

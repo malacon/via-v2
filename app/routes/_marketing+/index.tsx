@@ -84,9 +84,9 @@ export default function Index() {
 								<StudyIcon className="h-12 w-12 text-gray-100" />
 							</div>
 							<p className="flex-1 text-lg md:text-xl">
-								Studies in Via consists of seminars on ancient literature and
-								philosophy, featuring Israel, Babylon, Greece, and early
-								Christianity.
+								Studies in Via consists of seminars featuring the ancient
+								literary and philosophical traditions of Israel, Babylon,
+								Greece, and early Christianity.
 							</p>
 						</div>
 						<div className="flex flex-col items-center gap-8 lg:flex-row">

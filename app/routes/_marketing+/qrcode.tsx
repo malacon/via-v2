@@ -11,7 +11,7 @@ export default function Qrcode() {
 			//   download: true,
 			image: document.getElementById('image') as HTMLImageElement,
 			logo: {
-				src: './public/img/compass.png',
+				src: './img/compass.png',
 				// logoSize: 0.2,
 			},
 		})

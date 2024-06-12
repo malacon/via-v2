@@ -52,9 +52,10 @@ export default function Index() {
 					src={banner}
 					alt="Descriptive Alt Text"
 					className="h-[450px] w-screen overflow-hidden md:h-[640px] lg:h-[480px]"
-					gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-700/80 md:to-blue-500/30"
+					gradientClass="bg-gradient-to-r from-slate-900/0 to-slate-700/0 md:from-slate-700/0 md:to-blue-500/0"
+					// gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-700/80 md:to-blue-500/30"
 				>
-					<div className="container space-y-10  px-6 text-base sm:text-lg md:px-8 md:text-xl">
+					<div className="container h-full flex-col  place-content-center space-y-10 px-6 text-base sm:text-lg md:px-8 md:text-xl">
 						<p className="md:w-2/3 lg:w-2/5">
 							Via Nova offers a 9-month, live-in experience of intensive
 							intellectual, professional, and spiritual formation for Catholics
@@ -62,9 +63,10 @@ export default function Index() {
 						</p>
 						<p className="md:w-2/3 lg:w-2/5">
 							Through seminars, apprenticeships, spiritual regimens, and more,
-							Via Nova offers participants a via nova, that is "a new way" of
-							forming life-changing habits, acquiring practical knowledge, and
-							ultimately enjoying a life of freedom and mission.
+							we offer participants <span className="italic">a via nova</span>,
+							that is "a new way" of forming life-changing habits, acquiring
+							practical knowledge, and ultimately enjoying a life of freedom and
+							mission.
 						</p>
 					</div>
 				</ImageOverlay>
@@ -72,7 +74,7 @@ export default function Index() {
 			<section className="mb-20 flex flex-col gap-24">
 				<div className="container flex flex-col gap-8 px-6 md:px-8 lg:flex-row">
 					<div className="text-center text-3xl leading-10 text-accent-dark md:text-6xl md:leading-[5.25rem] lg:w-1/3 lg:text-left">
-						Life in Via Nova is centered around the ancient formula of{' '}
+						Life in Via centers around the ancient formula of{' '}
 						<span className="font-bold">study</span>,{' '}
 						<span className="font-bold">work</span>,{' '}
 						<br className="hidden xl:block" />&{' '}
@@ -83,7 +85,7 @@ export default function Index() {
 							<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400">
 								<StudyIcon className="h-12 w-12 text-gray-100" />
 							</div>
-							<p className="flex-1 text-lg md:text-xl">
+							<p className="flex-1 text-2xl sm:text-lg md:text-3xl">
 								Studies in Via consists of seminars featuring the ancient
 								literary and philosophical traditions of Israel, Babylon,
 								Greece, and early Christianity.
@@ -93,7 +95,7 @@ export default function Index() {
 							<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400">
 								<WorkIcon className="h-12 w-12 text-gray-100" />
 							</div>
-							<p className="flex-1 text-lg md:text-xl">
+							<p className="flex-1 text-2xl sm:text-lg md:text-3xl">
 								Work consists of apprenticeships with Catholic professionals who
 								are dedicated to preparing participants for success in their
 								respective career paths of interest.
@@ -103,7 +105,7 @@ export default function Index() {
 							<div className="flex h-20 w-20 items-center justify-center rounded-full border-4 bg-gray-400">
 								<PrayIcon className="h-12 w-12 text-gray-100" />
 							</div>
-							<p className="flex-1 text-lg md:text-xl">
+							<p className="flex-1 text-2xl sm:text-lg md:text-3xl">
 								Prayer consists of frequent time in silent prayer, spiritual
 								reading, and the sacraments under the guidance of spiritual
 								directors.

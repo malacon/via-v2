@@ -52,8 +52,9 @@ export default function Index() {
 					src={banner}
 					alt="Descriptive Alt Text"
 					className="h-[450px] w-screen overflow-hidden md:h-[640px] lg:h-[480px]"
-					gradientClass="bg-gradient-to-r from-slate-900/0 to-slate-700/0 md:from-slate-700/0 md:to-blue-500/0"
-					// gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-700/80 md:to-blue-500/30"
+					// gradientClass="bg-gradient-to-r from-slate-900/0 to-slate-700/0 md:from-slate-700/0 md:to-blue-500/0"
+					gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-900/80 md:via-slate-700/80 md:from-10% md:via-40% md:to-70% md:to-slate-700/0"
+					// gradientClass="bg-gradient-to-r from-slate-900/80 via-slate-700/80 from-10% via-50% to-60% to-slate-700/0"
 				>
 					<div className="container h-full flex-col  place-content-center space-y-10 px-6 text-base sm:text-lg md:px-8 md:text-xl">
 						<p className="md:w-2/3 lg:w-2/5">

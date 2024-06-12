@@ -56,13 +56,13 @@ export default function Index() {
 					gradientClass="bg-gradient-to-r from-slate-900/80 to-slate-700/80 md:from-slate-900/80 md:via-slate-700/80 md:from-10% md:via-40% md:to-70% md:to-slate-700/0"
 					// gradientClass="bg-gradient-to-r from-slate-900/80 via-slate-700/80 from-10% via-50% to-60% to-slate-700/0"
 				>
-					<div className="container h-full flex-col  place-content-center space-y-10 px-6 text-base sm:text-lg md:px-8 md:text-xl">
-						<p className="md:w-2/3 lg:w-2/5">
+					<div className="container h-full flex-col  place-content-center space-y-10 px-6 text-lg min-[500px]:text-2xl sm:text-2xl md:px-8 lg:text-2xl">
+						<p className="md:w-2/3 lg:w-3/5 xl:w-2/5">
 							Via Nova offers a 9-month, live-in experience of intensive
 							intellectual, professional, and spiritual formation for Catholics
 							ages 18-22.
 						</p>
-						<p className="md:w-2/3 lg:w-2/5">
+						<p className="md:w-2/3  min-[900px]:w-[40%] min-[1200px]:w-[50%] xl:w-2/5">
 							Through seminars, apprenticeships, spiritual regimens, and more,
 							we offer participants <span className="italic">a via nova</span>,
 							that is "a new way" of forming life-changing habits, acquiring
@@ -87,7 +87,7 @@ export default function Index() {
 								<StudyIcon className="h-12 w-12 text-gray-100" />
 							</div>
 							<p className="flex-1 text-2xl sm:text-lg md:text-3xl">
-								Studies in Via consists of seminars featuring the ancient
+								Studies in Via consist of seminars featuring the ancient
 								literary and philosophical traditions of Israel, Babylon,
 								Greece, and early Christianity.
 							</p>
@@ -97,9 +97,9 @@ export default function Index() {
 								<WorkIcon className="h-12 w-12 text-gray-100" />
 							</div>
 							<p className="flex-1 text-2xl sm:text-lg md:text-3xl">
-								Work consists of apprenticeships with Catholic professionals who
-								are dedicated to preparing participants for success in their
-								respective career paths of interest.
+								Work consists of apprenticeships with Catholic professionals
+								dedicated to preparing participants for success in their
+								respective careers.
 							</p>
 						</div>
 						<div className="flex flex-col items-center gap-8 lg:flex-row">
@@ -128,17 +128,20 @@ export default function Index() {
 						alt="Via at Study"
 						className="flex-1 "
 						imageClass="object-cover"
-						gradientClass="bg-gradient-to-r from-gray-500/80 to-blue-500/30"
+						gradientClass="flex-1"
+						// gradientClass="bg-gradient-to-r from-gray-500/80 to-blue-500/30"
 					/>
 					<ImageOverlay
 						src="/img/work.jpg"
 						alt="Via at Work"
 						className="flex-1 object-cover"
+						gradientClass="flex-1"
 					/>
 					<ImageOverlay
 						src="/img/pray.jpg"
 						alt="Via at Prayer"
 						className="flex-1 object-cover"
+						gradientClass="flex-1"
 					/>
 				</div>
 			</section>

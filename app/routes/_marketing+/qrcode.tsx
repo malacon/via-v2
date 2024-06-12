@@ -19,7 +19,8 @@ export default function Qrcode() {
 
 	return (
 		<div className="mt-10 flex flex-row place-content-center">
-			<img src="" alt="" id="image" />
+			{/* <img src="" alt="" id="image" /> */}
+			<canvas id="canvas"></canvas>
 		</div>
 	)
 }

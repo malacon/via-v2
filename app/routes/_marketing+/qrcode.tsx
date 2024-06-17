@@ -7,12 +7,12 @@ export default function Qrcode() {
 		new QrCodeWithLogo({
 			canvas: document.getElementById('canvas') as HTMLCanvasElement,
 			content: 'https://via.studyworkpray.org/',
-			width: 480,
+			width: 600,
 			//   download: true,
 			// image: document.getElementById('image') as HTMLImageElement,
 			logo: {
-				src: './img/compass.png',
-				// logoSize: 0.2,
+				src: './img/compass.svg',
+				logoSize: 0.2,
 			},
 		})
 	}

@@ -39,7 +39,7 @@ export async function action({ request }: ActionFunctionArgs) {
 	}
 
 	const response = await sendEmail({
-		to: 'craig.d.baker@gmail.com',
+		to: process.env.SEND_EMAIL,
 		subject: 'VIA::New Application',
 		text: `
 	New application from ${submission.payload.name} <${submission.payload.email}>

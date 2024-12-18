@@ -31,7 +31,7 @@ export async function sendEmail({
 	| { html: string; text: string; react?: never }
 	| { react: ReactElement; html?: never; text?: never }
 )) {
-	const from = 'hello@epicstack.dev'
+	const from = 'VIA Inquiry <inquiry@studyworkpray.org>'
 
 	const email = {
 		from,
@@ -56,11 +56,12 @@ export async function sendEmail({
 		method: 'POST',
 		body: JSON.stringify(email),
 		headers: {
-			Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+			Authorization: `Bearer re_cfJkBmqx_AEstVw5knvRkWKBaTNpeV4HQ`,
 			'Content-Type': 'application/json',
 		},
 	})
 	const data = await response.json()
+
 	const parsedData = resendSuccessSchema.safeParse(data)
 
 	if (response.ok && parsedData.success) {

@@ -94,7 +94,6 @@ export default function ApplyForm({
 }) {
 	const actionData = useActionData<typeof action>()
 	const fetcher = useFetcher<typeof action>()
-	console.log({ actionData, fetcher })
 	const [form, fields] = useForm({
 		id: 'change-email-form',
 		constraint: getZodConstraint(ApplySchema),

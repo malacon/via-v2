@@ -7,6 +7,7 @@ import {
 	type ActionFunctionArgs,
 } from '@remix-run/node'
 import { useActionData, useFetcher, type MetaFunction } from '@remix-run/react'
+import * as React from 'react'
 import { z } from 'zod'
 import { Field, TextareaField } from '#app/components/forms.js'
 import { StatusButton } from '#app/components/ui/status-button.js'
@@ -94,6 +95,7 @@ export default function ApplyForm({
 }) {
 	const actionData = useActionData<typeof action>()
 	const fetcher = useFetcher<typeof action>()
+	console.log({ actionData, fetcher })
 	const [form, fields] = useForm({
 		id: 'change-email-form',
 		constraint: getZodConstraint(ApplySchema),
@@ -101,10 +103,13 @@ export default function ApplyForm({
 		onValidate({ formData }) {
 			return parseWithZod(formData, { schema: ApplySchema })
 		},
-		onSubmit: (event, ctx) => {
-			ctx.submission?.status === 'success' && formSuccess(false)
-		},
 	})
+
+	React.useEffect(() => {
+		if (fetcher.state === 'loading') {
+			formSuccess(false)
+		}
+	}, [fetcher.state, formSuccess])
 
 	return (
 		<div className="w-full">

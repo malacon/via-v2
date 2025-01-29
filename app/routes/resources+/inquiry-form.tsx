@@ -1,7 +1,8 @@
 import { getFormProps, getInputProps, useForm } from '@conform-to/react'
 import { getZodConstraint, parseWithZod } from '@conform-to/zod'
 import { json, type ActionFunctionArgs } from '@remix-run/node'
-import { Form, useActionData, type MetaFunction } from '@remix-run/react'
+import { useActionData, useFetcher, type MetaFunction } from '@remix-run/react'
+import * as React from 'react'
 import { z } from 'zod'
 import { Field, TextareaField } from '#app/components/forms.js'
 import { StatusButton } from '#app/components/ui/status-button.js'
@@ -70,6 +71,7 @@ export default function InquiryForm({
 }: {
 	formSuccess: React.Dispatch<React.SetStateAction<boolean>>
 }) {
+	const fetcher = useFetcher<typeof action>()
 	const actionData = useActionData<typeof action>()
 	const [form, fields] = useForm({
 		id: 'change-email-form',
@@ -78,15 +80,18 @@ export default function InquiryForm({
 		onValidate({ formData }) {
 			return parseWithZod(formData, { schema: InquirySchema })
 		},
-		onSubmit: (event, ctx) => {
-			ctx.submission?.status === 'success' && formSuccess(false)
-		},
 	})
+
+	React.useEffect(() => {
+		if (fetcher.state === 'loading') {
+			formSuccess(false)
+		}
+	}, [fetcher.state, formSuccess])
 
 	return (
 		<div className="w-full">
 			<h3 className="pb-6 font-serif text-2xl">Learn More</h3>
-			<Form
+			<fetcher.Form
 				method="post"
 				action={ACTION}
 				{...getFormProps(form)}
@@ -137,7 +142,7 @@ export default function InquiryForm({
 				>
 					Send Message
 				</StatusButton>
-			</Form>
+			</fetcher.Form>
 		</div>
 	)
 }

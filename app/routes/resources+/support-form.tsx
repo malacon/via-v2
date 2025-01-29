@@ -1,7 +1,8 @@
 import { getFormProps, getInputProps, useForm } from '@conform-to/react'
 import { getZodConstraint, parseWithZod } from '@conform-to/zod'
 import { json, type ActionFunctionArgs } from '@remix-run/node'
-import { Form, useActionData, type MetaFunction } from '@remix-run/react'
+import { useActionData, useFetcher, type MetaFunction } from '@remix-run/react'
+import * as React from 'react'
 import { z } from 'zod'
 import { Field } from '#app/components/forms.js'
 import { Button } from '#app/components/ui/button.js'
@@ -67,6 +68,7 @@ export default function SupportForm({
 }: {
 	formSuccess: React.Dispatch<React.SetStateAction<boolean>>
 }) {
+	const fetcher = useFetcher<typeof action>()
 	const actionData = useActionData<typeof action>()
 	const [form, fields] = useForm({
 		id: 'change-email-form',
@@ -75,10 +77,13 @@ export default function SupportForm({
 		onValidate({ formData }) {
 			return parseWithZod(formData, { schema: SupportSchema })
 		},
-		onSubmit: (event, ctx) => {
-			ctx.submission?.status === 'success' && formSuccess(false)
-		},
 	})
+
+	React.useEffect(() => {
+		if (fetcher.state === 'loading') {
+			formSuccess(false)
+		}
+	}, [fetcher.state, formSuccess])
 
 	return (
 		<div className="w-full">
@@ -102,7 +107,7 @@ export default function SupportForm({
 				to our prayer intentions mailing list. Please fill out your information
 				below so we can keep you posted on our prayer intentions.
 			</p>
-			<Form
+			<fetcher.Form
 				method="post"
 				action={ACTION}
 				{...getFormProps(form)}
@@ -141,7 +146,7 @@ export default function SupportForm({
 				>
 					Join Via's Prayer Team
 				</StatusButton>
-			</Form>
+			</fetcher.Form>
 		</div>
 	)
 }

@@ -42,6 +42,10 @@ export default function Index() {
 	// 	undefined,
 	// )
 
+	const [isApplyFormOpen, setIsApplyFormOpen] = useState(false)
+	const [isInquryFormOpen, setIsInquryFormOpen] = useState(false)
+	const [isSupportFormOpen, setIsSupportFormOpen] = useState(false)
+
 	return (
 		<main>
 			<section
@@ -216,7 +220,7 @@ export default function Index() {
 			<section className="pb-0 pt-8 lg:pt-16" id="contact">
 				<div className="container p-6 md:p-8">
 					<div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-3">
-						<Dialog>
+						<Dialog open={isApplyFormOpen} onOpenChange={setIsApplyFormOpen}>
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 									<h3 className="font-serif text-2xl">Apply to Via</h3>
@@ -239,10 +243,13 @@ export default function Index() {
 								</div>
 							</DialogTrigger>
 							<DialogContent className="container rounded-lg border border-slate-500 bg-slate-300 p-8 sm:max-w-[425px]">
-								<ApplyForm />
+								<ApplyForm formSuccess={setIsApplyFormOpen} />
 							</DialogContent>
 						</Dialog>
-						<Dialog>
+						<Dialog
+							open={isSupportFormOpen}
+							onOpenChange={setIsSupportFormOpen}
+						>
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 									<h3 className="font-serif text-2xl">Support Us</h3>
@@ -262,10 +269,10 @@ export default function Index() {
 								</div>
 							</DialogTrigger>
 							<DialogContent className="container rounded-lg border border-slate-500 bg-slate-300 p-8 sm:max-w-[425px]">
-								<SupportForm />
+								<SupportForm formSuccess={setIsSupportFormOpen} />
 							</DialogContent>
 						</Dialog>
-						<Dialog>
+						<Dialog open={isInquryFormOpen} onOpenChange={setIsInquryFormOpen}>
 							<DialogTrigger asChild className="cursor-pointer">
 								<div className="active group flex flex-col place-items-center gap-2 focus-visible:outline-none">
 									<h3 className="font-serif text-2xl">Learn More</h3>
@@ -287,7 +294,7 @@ export default function Index() {
 								</div>
 							</DialogTrigger>
 							<DialogContent className="container rounded-lg border border-slate-500 bg-slate-300 p-8 sm:max-w-[425px]">
-								<InquiryForm />
+								<InquiryForm formSuccess={setIsInquryFormOpen} />
 							</DialogContent>
 						</Dialog>
 					</div>

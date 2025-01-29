@@ -1,7 +1,12 @@
 import { getFormProps, getInputProps, useForm } from '@conform-to/react'
 import { getZodConstraint, parseWithZod } from '@conform-to/zod'
-import { json, type ActionFunctionArgs } from '@remix-run/node'
-import { Form, useActionData, type MetaFunction } from '@remix-run/react'
+import {
+	json,
+	type LoaderFunctionArgs,
+	redirect,
+	type ActionFunctionArgs,
+} from '@remix-run/node'
+import { useActionData, useFetcher, type MetaFunction } from '@remix-run/react'
 import { z } from 'zod'
 import { Field, TextareaField } from '#app/components/forms.js'
 import { StatusButton } from '#app/components/ui/status-button.js'
@@ -42,19 +47,33 @@ export async function action({ request }: ActionFunctionArgs) {
 		to: process.env.SEND_EMAIL,
 		subject: 'VIA::New Application',
 		text: `
-	New application from ${submission.payload.name} <${submission.payload.email}>
+	New application from ${submission.payload.name} (${submission.payload.email})
 	${submission.payload.message}
 `,
-		html: `
-New application from ${submission.payload.name} <${submission.payload.email}>
-${submission.payload.message}
-`,
+		html: `<div>
+New application from ${submission.payload.name} (${submission.payload.email})<br />
+
+Message: ${submission.payload.message}
+</div>`,
 	})
 
 	if (response.status === 'success') {
+		// return redirect(
+		// 	{ results: submission.reply(), status: 'success' },
+		// 	{
+		// 		headers: combineHeaders(
+		// 			await createToastHeaders({
+		// 				title: 'Success!',
+		// 				description: 'Your message has been sent.',
+		// 				type: 'success',
+		// 			}),
+		// 		),
+		// 	},
+		// )
 		return redirectWithToast('/', {
 			title: 'Success!',
 			description: 'Your message has been sent.',
+			type: 'success',
 		})
 	} else {
 		return json(
@@ -64,8 +83,18 @@ ${submission.payload.message}
 	}
 }
 
-export default function ApplyForm() {
+export function loader({}: LoaderFunctionArgs) {
+	return redirect('/')
+}
+
+export default function ApplyForm({
+	formSuccess,
+}: {
+	formSuccess: React.Dispatch<React.SetStateAction<boolean>>
+}) {
 	const actionData = useActionData<typeof action>()
+	const fetcher = useFetcher<typeof action>()
+	console.log({ actionData, fetcher })
 	const [form, fields] = useForm({
 		id: 'change-email-form',
 		constraint: getZodConstraint(ApplySchema),
@@ -73,12 +102,15 @@ export default function ApplyForm() {
 		onValidate({ formData }) {
 			return parseWithZod(formData, { schema: ApplySchema })
 		},
+		onSubmit: (event, ctx) => {
+			ctx.submission?.status === 'success' && formSuccess(false)
+		},
 	})
 
 	return (
 		<div className="w-full">
 			<h3 className="pb-6 font-serif text-2xl">Apply to Via</h3>
-			<Form
+			<fetcher.Form
 				method="post"
 				action={ACTION}
 				{...getFormProps(form)}
@@ -129,7 +161,7 @@ export default function ApplyForm() {
 				>
 					Submit
 				</StatusButton>
-			</Form>
+			</fetcher.Form>
 		</div>
 	)
 }

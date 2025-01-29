@@ -39,13 +39,14 @@ export async function action({ request }: ActionFunctionArgs) {
 		to: process.env.SEND_EMAIL,
 		subject: 'VIA::Support Form Submission',
 		text: `
-	New support from ${submission.payload.name} <${submission.payload.email}>
-	${submission.payload.message}
+	New support from ${submission.payload.name} (${submission.payload.email})
+	I would like to pray for you!
 `,
-		html: `
-New support from ${submission.payload.name} <${submission.payload.email}>
-${submission.payload.message}
-`,
+		html: `<div>
+New support from ${submission.payload.name} (${submission.payload.email})<br />
+
+Message: I would like to pray for you!
+</div>`,
 	})
 
 	if (response.status === 'success') {
@@ -61,7 +62,11 @@ ${submission.payload.message}
 	}
 }
 
-export default function SupportForm() {
+export default function SupportForm({
+	formSuccess,
+}: {
+	formSuccess: React.Dispatch<React.SetStateAction<boolean>>
+}) {
 	const actionData = useActionData<typeof action>()
 	const [form, fields] = useForm({
 		id: 'change-email-form',
@@ -69,6 +74,9 @@ export default function SupportForm() {
 		lastResult: actionData?.results,
 		onValidate({ formData }) {
 			return parseWithZod(formData, { schema: SupportSchema })
+		},
+		onSubmit: (event, ctx) => {
+			ctx.submission?.status === 'success' && formSuccess(false)
 		},
 	})
 

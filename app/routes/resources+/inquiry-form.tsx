@@ -42,13 +42,14 @@ export async function action({ request }: ActionFunctionArgs) {
 		to: process.env.SEND_EMAIL,
 		subject: 'VIA::Inquiry Form Submission',
 		text: `
-	New inquiry from ${submission.payload.name} <${submission.payload.email}>
+	New inquiry from ${submission.payload.name} (${submission.payload.email})
 	${submission.payload.message}
 `,
-		html: `
-New inquiry from ${submission.payload.name} <${submission.payload.email}>
-${submission.payload.message}
-`,
+		html: `<div>
+New inquiry from ${submission.payload.name} (${submission.payload.email})<br />
+
+Message: ${submission.payload.message}
+</div>`,
 	})
 
 	if (response.status === 'success') {
@@ -64,7 +65,11 @@ ${submission.payload.message}
 	}
 }
 
-export default function InquiryForm() {
+export default function InquiryForm({
+	formSuccess,
+}: {
+	formSuccess: React.Dispatch<React.SetStateAction<boolean>>
+}) {
 	const actionData = useActionData<typeof action>()
 	const [form, fields] = useForm({
 		id: 'change-email-form',
@@ -72,6 +77,9 @@ export default function InquiryForm() {
 		lastResult: actionData?.results,
 		onValidate({ formData }) {
 			return parseWithZod(formData, { schema: InquirySchema })
+		},
+		onSubmit: (event, ctx) => {
+			ctx.submission?.status === 'success' && formSuccess(false)
 		},
 	})
 

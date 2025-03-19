@@ -22,12 +22,12 @@ const faqs: Faq[] = [
 	// {
 	// 	title: 'What are the ages of Via Fellows?',
 	// 	answer:
-	// 		"Fellows applying to the 2024-2025 cohort should be between ages 18 and 21 by August 2024.  Some of Via's current Fellows graduated from high school the spring prior to beginning the program, while others were already full-time university students before beginning Via.",
+	// 		"Fellows applying to the 2025-2026 cohort should be between ages 18 and 21 by August 2024.  Some of Via's current Fellows graduated from high school the spring prior to beginning the program, while others were already full-time university students before beginning Via.",
 	// },
 	{
 		title: 'How old do I need to be to apply to Via?',
 		answer:
-			'Fellows applying to the 2024-2025 cohort should be between ages 18 and 22 by August of 2024.',
+			'Fellows applying to the 2025-2026 cohort should be between ages 18 and 22 by August of 2024.',
 	},
 	{
 		title: 'Is Via Catholic?',

@@ -172,39 +172,39 @@ export default function Index() {
 								<br className="hidden lg:block" /> coming together with a shared
 								desire for largely the same things: */}
 							</p>
-							<ul className="m-auto grid list-disc grid-flow-row grid-cols-1 gap-y-6 px-4 text-sm font-light md:grid-cols-2 md:gap-x-24 md:px-12 md:text-xl">
+							<ul className="m-auto grid list-disc grid-flow-row grid-cols-1 gap-y-6 px-4 text-sm font-light md:w-full md:pl-12 md:text-xl">
 								<li>
 									Knowledge of oneself,
-									<br className="hidden lg:block" /> the world, and God
+									<br className="hidden " /> the world, and God
 								</li>
 								<li>
 									Habits of order
-									<br className="hidden lg:block" />
+									<br className="hidden " />
 									and self-mastery
 								</li>
 								<li>
-									Meaningful work <br className="hidden lg:block" />
+									Meaningful work <br className="hidden " />
 									in a potential career
 								</li>
 								<li>
 									An abiding love of God
-									<br className="hidden lg:block" /> and neighbor
+									<br className="hidden " /> and neighbor
 								</li>
 								<li>
 									A deep capacity for
-									<br className="hidden lg:block" /> prayer and meditation
+									<br className="hidden " /> prayer and meditation
 								</li>
 								<li>
 									Freedom from vice
-									<br className="hidden lg:block" /> and attachment
+									<br className="hidden " /> and attachment
 								</li>
 								<li>
 									An ability to share
-									<br className="hidden lg:block" /> the faith with confidence
+									<br className="hidden " /> the faith with confidence
 								</li>
 								<li>
 									A clear understanding
-									<br className="hidden lg:block" /> of one's calling
+									<br className="hidden " /> of one's calling
 								</li>
 							</ul>
 						</div>
@@ -238,7 +238,7 @@ export default function Index() {
 									</div>
 									<p className="text-pretty text-center text-lg font-light leading-8">
 										Begin the application process to be a part of Via's
-										2024-2025 cohort.
+										2025-2026 cohort.
 									</p>
 								</div>
 							</DialogTrigger>
@@ -310,7 +310,7 @@ export default function Index() {
 									/>
 								</div>
 								<p className="text-lg font-light leading-8 text-center">
-									Begin the application process to be a part of Via's 2024-2025
+									Begin the application process to be a part of Via's 2025-2026
 									cohort.
 								</p>
 							</Tab>

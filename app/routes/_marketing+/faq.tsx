@@ -47,7 +47,7 @@ const faqs: Faq[] = [
 	{
 		title: 'How much does it cost?',
 		answer:
-			"Regarding costs for the year, the program of Via itself does not cost money.  We believe that the experience of Via is so important that financial barriers should be removed as much as possible to make the formation of Via happen.  The experience of Via is a gift to equip the future of the church for a life of self-gift back to the church.  However, the Fellows do pay for rent and have the normal personal expenses of a college student (e.g. food, phone bill, gas, etc.).  Fellows' food expenses are offset by a few things Via covers, namely: communal meals, meals at events, some standard grocery items like milk and eggs, and the meal prep option.  The meal prep option refers to the opportunity each Fellow has to prepare meals each weekend for the week ahead using funds from a donation pool.",
+			"The program of Via itself does not cost money. We believe that the experience of Via is so important that financial barriers should be removed as much as possible to make the formation of Via happen. The experience of Via is a gift aimed at equipping the future of the church for a life of self-gift back to the church community. However, the Fellows do pay for rent and have normal personal expenses (e.g. food, phone bill, gas, etc.). Fellows' food expenses are offset by a few things Via covers, namely: communal meals, meals at events hosted by the Fellows, some standard grocery items we keep stocked like milk and eggs, and the meal prep option. The meal prep option refers to the opportunity each Fellow has to prepare meals each weekend for the week ahead using funds from a donation pool.",
 	},
 ]
 

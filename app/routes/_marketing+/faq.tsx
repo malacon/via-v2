@@ -177,9 +177,9 @@ export default function FAQRoute() {
 			<div className="relative z-20 mx-auto flex w-[800px] flex-col space-y-10 p-6 font-serif md:p-12">
 				<Accordion type="single" collapsible className="w-full">
 					{faqs.map(({ answer, img, question }) => (
-						<AccordionItem key={title} value={question}>
+						<AccordionItem key={question} value={question}>
 							<AccordionTrigger className="pb-8 font-serif text-3xl">
-								{title}
+								{question}
 							</AccordionTrigger>
 							<AccordionContent className="text-2xl leading-8">
 								{answer}

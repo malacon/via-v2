@@ -1,5 +1,4 @@
-import { type LoaderFunctionArgs, json } from '@remix-run/node'
-import { Link, useLoaderData } from '@remix-run/react'
+import { Link } from '@remix-run/react'
 import ImageOverlay from '#app/components/image-overlay.tsx'
 import {
 	Accordion,
@@ -165,13 +164,7 @@ const faqs = [
 	},
 ] as const
 
-export async function loader({ request }: LoaderFunctionArgs) {
-	return json({ faqs })
-}
-
 export default function FAQRoute() {
-	const { faqs } = useLoaderData<typeof loader>()
-
 	return (
 		<section id="faq" className="relative min-h-[1250px] bg-section">
 			<ImageOverlay src="/img/via4.png" position="46% 78%" opacity="0.0" />
@@ -179,11 +172,11 @@ export default function FAQRoute() {
 				<Accordion type="single" collapsible className="w-full">
 					{faqs.map(({ answer, question }) => (
 						<AccordionItem key={question} value={question}>
-							<AccordionTrigger className="pb-8 font-serif text-3xl">
+							<AccordionTrigger className="pb-8 text-left font-serif text-3xl">
 								{question}
 							</AccordionTrigger>
 							<AccordionContent className="text-2xl leading-8">
-								{typeof answer === 'string' ? answer : <>{answer}</>}
+								{answer}
 							</AccordionContent>
 						</AccordionItem>
 					))}

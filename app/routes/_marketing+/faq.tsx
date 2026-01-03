@@ -182,7 +182,7 @@ export default function FAQRoute() {
 								{title}
 							</AccordionTrigger>
 							<AccordionContent className="text-2xl leading-8">
-								<div dangerouslySetInnerHTML={{ __html: answer }} />
+								{answer}
 								{img ? <img src={img} alt="schedule" /> : null}
 							</AccordionContent>
 						</AccordionItem>

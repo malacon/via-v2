@@ -8,12 +8,7 @@ import {
 	AccordionTrigger,
 } from '#app/components/ui/accordion.tsx'
 
-type Faq = {
-	title: string
-	answer: string
-	img?: string
-}
-const faqs: Faq[] = [
+const faqs = [
 	{
 		question: 'Who is Via for?',
 		answer:
@@ -167,7 +162,8 @@ const faqs: Faq[] = [
 			</div>
 		),
 	},
-]
+] as const
+
 export async function loader({ request }: LoaderFunctionArgs) {
 	return json({ faqs })
 }

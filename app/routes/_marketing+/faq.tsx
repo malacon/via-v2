@@ -1,5 +1,5 @@
-import { type LoaderFunctionArgs, json } from '@remix-run/node'
-import { useLoaderData, Link } from '@remix-run/react'
+import { type LoaderFunctionArgs, json, Link } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 import ImageOverlay from '#app/components/image-overlay.tsx'
 import {
 	Accordion,
@@ -82,6 +82,7 @@ const faqs = [
 				visit, but we welcome visitors starting in September. If you would like
 				to visit, please reach out to{' '}
 				<a
+					// eslint-disable-next-line remix-react-routes/use-link-for-routes
 					href="mailto:admissions@studyworkpray.org"
 					className="underline hover:text-black"
 				>
@@ -172,17 +173,17 @@ export default function FAQRoute() {
 	const { faqs } = useLoaderData<typeof loader>()
 
 	return (
-		<section id="faq" className="bg-section relative min-h-[1250px]">
+		<section id="faq" className="relative min-h-[1250px] bg-section">
 			<ImageOverlay src="/img/via4.png" position="46% 78%" opacity="0.0" />
 			<div className="relative z-20 mx-auto flex w-[800px] flex-col space-y-10 p-6 font-serif md:p-12">
 				<Accordion type="single" collapsible className="w-full">
-					{faqs.map(({ answer, img, question }) => (
+					{faqs.map(({ answer, question }) => (
 						<AccordionItem key={question} value={question}>
 							<AccordionTrigger className="pb-8 font-serif text-3xl">
 								{question}
 							</AccordionTrigger>
 							<AccordionContent className="text-2xl leading-8">
-								{answer}
+								{typeof answer === 'string' ? answer : <>{answer}</>}
 							</AccordionContent>
 						</AccordionItem>
 					))}

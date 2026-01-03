@@ -1,5 +1,5 @@
-import { type LoaderFunctionArgs, json, Link } from '@remix-run/node'
-import { useLoaderData } from '@remix-run/react'
+import { type LoaderFunctionArgs, json } from '@remix-run/node'
+import { useLoaderData, Link } from '@remix-run/react'
 import ImageOverlay from '#app/components/image-overlay.tsx'
 import {
 	Accordion,
@@ -183,7 +183,6 @@ export default function FAQRoute() {
 							</AccordionTrigger>
 							<AccordionContent className="text-2xl leading-8">
 								{answer}
-								{img ? <img src={img} alt="schedule" /> : null}
 							</AccordionContent>
 						</AccordionItem>
 					))}

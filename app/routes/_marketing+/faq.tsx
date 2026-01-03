@@ -19,11 +19,6 @@ const faqs = [
 			'Fellows applying to the 2025-2026 cohort should be between ages 18 and 22 by August of 2025.',
 	},
 	{
-		question: 'Is Via co-ed?',
-		answer:
-			"Via has both a men's cohort and a women's cohort. Each cohort has their own house but the cohorts come together for most of Via's events.",
-	},
-	{
 		question: 'Where is Via located?',
 		answer:
 			"Via's houses are in the heart of Cajun country: Lafayette, Louisiana.",
